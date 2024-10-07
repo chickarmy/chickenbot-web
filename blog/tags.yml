@@ -1,19 +1,14 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+website:
+  label: website
+  permalink: /website
+  description: About Chickenbot website
 
 docusaurus:
-  label: Docusaurus
+  label: docusaurus
   permalink: /docusaurus
-  description: Docusaurus tag description
+  description: Docusaurus website generator tool
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+dev:
+  label: dev
+  permalink: /dev
+  description: Development
