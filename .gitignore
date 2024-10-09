@@ -21,3 +21,8 @@ yarn-error.log*
 
 # IntelliJ
 .idea/
+*.iml
+
+# wip
+draft/
+*.dontpush.*
