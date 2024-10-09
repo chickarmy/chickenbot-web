@@ -47,3 +47,27 @@ When some changes has been locally tested, then accepted, and (via pull-request)
 - then the `deploy.yml` [workflow](./workflows/deploy.yml) will be triggered on `prod` push to build and deploy the website on GitHub-pages : https://boly38.github.io/chickenbot-web/.
 
 You can start workflow and follow them under [actions tab](https://github.com/boly38/chickenbot-web/actions).
+
+## HowTo release using Gren
+
+- [releases notes](https://github.com/boly38/chickenbot-web/releases)  - generated via `gren` [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
+
+```bash
+# provide PAT with permissions to create release on current repository
+export GREN_GITHUB_TOKEN=your_token_here
+# one time setup
+npm install github-release-notes@latest -g
+
+git fetch --all && git pull
+
+# suppose you have just release v2.2.2 milestone
+export VY=v2.2.2
+# make a release vY with all history
+gren release --data-source=prs -t $VY --milestone-match=$VY
+
+# if you had a previous release
+# - your previous release was v2.2.1 milestone
+export VX=v2.2.1
+# - overrides release vY with history from vY ... to ... vY-1
+gren release --data-source=prs -t "$VY".."$VX" --milestone-match="$VY" --override
+```
