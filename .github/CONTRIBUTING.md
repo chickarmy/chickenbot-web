@@ -41,16 +41,9 @@ $ npm run serve
 
 ### Deployment
 
-Using SSH:
+When some changes has been locally tested, then accepted, and (via pull-request) then merged on `main` branch : 
+- you could run GitHub Actions `patch.yml` [workflow](./workflows/patch.yml).
+- as result a new version patch is produced on `prod` branch.
+- then the `deploy.yml` [workflow](./workflows/deploy.yml) will be triggered on `prod` push to build and deploy the website on GitHub-pages : https://boly38.github.io/chickenbot-web/.
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+You can start workflow and follow them under [actions tab](https://github.com/boly38/chickenbot-web/actions).
