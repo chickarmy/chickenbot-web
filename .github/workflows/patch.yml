@@ -1,0 +1,33 @@
+name: Patch
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [ 22.x ]
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+        with:
+          ref: 'prod'
+          token: ${{ secrets.GH_ACTIONS_TOKEN }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Patch
+        run: |
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'github-actions[bot]'
+          git fetch --all
+          git checkout main
+          npm version patch
+          git branch -f prod
+          git push origin main prod --tags
