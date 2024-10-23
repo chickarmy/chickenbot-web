@@ -8,6 +8,12 @@ docusaurus:
   permalink: /docusaurus
   description: Docusaurus website generator tool
 
+chickenbot:
+  description: Chickenbot product
+
+version:
+  description: Chickenbot official version
+
 dev:
   label: dev
   permalink: /dev

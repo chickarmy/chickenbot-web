@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'ChickenBot',
-    tagline: 'Chickenbot is cool',
+    title: '🐔 ChickenBot',
+    tagline: 'Minecraft cool bot🤖',
     favicon: 'img/favicon.ico',
 
     // Set the production url of your site here

@@ -1,18 +1,27 @@
 [
   {
-    "version": "0.1",
-    "label": "0.1 test version",
-    "description": "This version.1 is just a fake version whose purpose is to test the update of the documentation portal",
-    "description.fr": "Cette version.1 n'est qu'une fausse version dont le but est de tester la mise à jour du portail de documentation",
-    "note": "https://github.com/boly38/chickenbot-web/releases/tag/v0.0.10-test",
-    "download": "https://github.com/boly38/chickenbot-web/releases/download/v0.0.10-test/package.readme.txt"
+    "version": "0.5",
+    "label": "0.5 version",
+    "label_fr": "0.5 verfion",
+    "description": "this is 0.5 version \nthis version is amazing\nblah blah blah\n",
+    "description_fr": "ZOOOOOOOOOOOOOOOOOuby la\nkenobi",
+    "note": "https://google.fr",
+    "download": "https://example.com"
   },
   {
-    "version": "0.2",
-    "label": "0.2 test version",
-    "description": "This version.2 is just a fake version whose purpose is to test the update of the documentation portal",
-    "description.fr": "Cette version.1 n'est qu'une fausse version dont le but est de tester la mise à jour du portail de documentation",
-    "note": "https://github.com/boly38/chickenbot-web/releases/tag/v0.0.10-test",
-    "download": "https://github.com/boly38/chickenbot-web/releases/download/v0.0.10-test/package.readme.txt"
+    "version": "0.3",
+    "label": "0.3 new version",
+    "description": "This version.3 is the latest release with new features.",
+    "description_fr": "Cette version.3 est la dernière version avec de nouvelles fonctionnalités.",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.11",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.11/package.zip"
+  },
+  {
+    "version": "0.2bis",
+    "label": "0.2bis old version",
+    "description": "This version.2bis is the latest release with new features.",
+    "description_fr": "Cette version.2bis est la dernière version avec de nouvelles fonctionnalités.",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.11",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.11/package.zip"
   }
 ]

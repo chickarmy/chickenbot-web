@@ -4,12 +4,26 @@ name: Push_new_version
 
 on:
   repository_dispatch:
-    types: [trigger-workflow]
+    types: [push-new-version]
 
 jobs:
   handle-dispatch:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [ 22.x ]
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
       - name: Get the inputs
         run: |
           echo "Version: ${{ github.event.client_payload.version }}"
@@ -20,4 +34,13 @@ jobs:
           echo "Note: ${{ github.event.client_payload.note }}"
           echo "Download: ${{ github.event.client_payload.download }}"
 
-      # TBC
+      - name: Run push_new_version script
+        run: |
+          node script/push_new_version.mjs \
+            --version "${{ github.event.client_payload.version }}" \
+            --label "${{ github.event.client_payload.label }}" \
+            --label_fr "${{ github.event.client_payload.label_fr }}" \
+            --description "${{ github.event.client_payload.description }}" \
+            --description_fr "${{ github.event.client_payload.description_fr }}" \
+            --note "${{ github.event.client_payload.note }}" \
+            --download "${{ github.event.client_payload.download }}"
