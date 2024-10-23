@@ -9,3 +9,12 @@ boly38:
     bluesky: https://bsky.app/profile/boly38.bsky.social
     github: boly38
 
+chickarmy:
+  name: Chickarmy
+  title: Chicken Army on GitHub
+  url: https://github.com/chickarmy
+  image_url: https://github.com/chickarmy.png
+  page: true
+  socials:
+    github: chickarmy
+
