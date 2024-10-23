@@ -1,0 +1,23 @@
+name: Push_new_version
+
+# this workflow is triggered by another repository
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow]
+
+jobs:
+  handle-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the inputs
+        run: |
+          echo "Version: ${{ github.event.client_payload.version }}"
+          echo "Label: ${{ github.event.client_payload.label }}"
+          echo "Label FR: ${{ github.event.client_payload.label_fr }}"
+          echo "Description: ${{ github.event.client_payload.description }}"
+          echo "Description FR: ${{ github.event.client_payload.description_fr }}"
+          echo "Note: ${{ github.event.client_payload.note }}"
+          echo "Download: ${{ github.event.client_payload.download }}"
+
+      # TBC
