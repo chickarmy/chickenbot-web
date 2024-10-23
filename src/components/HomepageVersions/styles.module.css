@@ -1,0 +1,24 @@
+.versions {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+
+.botVersion {
+  margin: 5px;
+  padding: 15px;
+  border: 0px solid green;
+  font-size: 1.0rem;
+  margin:20px;
+  padding:10px;
+  background-color: rgba(231, 243, 243, 0.79);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-width: 400px;
+}
+.botVersion a {
+  padding: 5px;
+  color: darkslateblue !important;
+  border: 0px solid red;
+}
