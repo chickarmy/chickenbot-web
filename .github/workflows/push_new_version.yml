@@ -1,6 +1,8 @@
 name: Push_new_version
-
 # this workflow is triggered by another repository
+
+permissions:
+  contents: write
 
 on:
   repository_dispatch:
