@@ -44,13 +44,13 @@ $ npm run serve
 When some changes has been locally tested, then accepted, and (via pull-request) then merged on `main` branch : 
 - you could run GitHub Actions `patch.yml` [workflow](./workflows/patch.yml).
 - as result a new version patch is produced on `prod` branch.
-- then the `deploy.yml` [workflow](./workflows/deploy.yml) will be triggered on `prod` push to build and deploy the website on GitHub-pages : https://boly38.github.io/chickenbot-web/.
+- then the `deploy.yml` [workflow](./workflows/deploy.yml) will be triggered on `prod` push to build and deploy the website on GitHub-pages : https://chickarmy.github.io/chickenbot-web/.
 
-You can start workflow and follow them under [actions tab](https://github.com/boly38/chickenbot-web/actions).
+You can start workflow and follow them under [actions tab](https://github.com/chickarmy/chickenbot-web/actions).
 
 ## HowTo release using Gren
 
-- [releases notes](https://github.com/boly38/chickenbot-web/releases)  - generated via `gren` [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
+- [releases notes](https://github.com/chickarmy/chickenbot-web/releases)  - generated via `gren` [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
 ```bash
 # provide PAT with permissions to create release on current repository

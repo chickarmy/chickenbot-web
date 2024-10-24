@@ -36,7 +36,7 @@ jobs:
 
       - name: Run push_new_version script
         run: |
-          node script/push_new_version.mjs \
+          node scripts/push_new_version.mjs \
             --version "${{ github.event.client_payload.version }}" \
             --label "${{ github.event.client_payload.label }}" \
             --label_fr "${{ github.event.client_payload.label_fr }}" \
