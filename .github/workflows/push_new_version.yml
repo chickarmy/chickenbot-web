@@ -1,6 +1,11 @@
 name: Push_new_version
-
 # this workflow is triggered by another repository
+# WARN : need write main protection rule
+
+# repository settings requirement : Allow GitHub Actions to create and approve pull requests
+permissions:
+  contents: write
+  pull-requests: write
 
 on:
   repository_dispatch:
@@ -13,34 +18,91 @@ jobs:
     strategy:
       matrix:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        node-version: [ 22.x ]
+        node-version: [ 20.x ]
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Get the inputs
+      # inputs github.event.client_payload : version,label,label_fr,description,description_fr,note,download
+      - name: Read input variables from client_payload as env variables
         run: |
-          echo "Version: ${{ github.event.client_payload.version }}"
-          echo "Label: ${{ github.event.client_payload.label }}"
-          echo "Label FR: ${{ github.event.client_payload.label_fr }}"
-          echo "Description: ${{ github.event.client_payload.description }}"
-          echo "Description FR: ${{ github.event.client_payload.description_fr }}"
-          echo "Note: ${{ github.event.client_payload.note }}"
-          echo "Download: ${{ github.event.client_payload.download }}"
+          echo "VERSION=${{ github.event.client_payload.version }}" >> $GITHUB_ENV
+          echo "LABEL=${{ github.event.client_payload.label }}" >> $GITHUB_ENV
+          echo "LABEL_FR=${{ github.event.client_payload.label_fr }}" >> $GITHUB_ENV
+          echo "DESCRIPTION=${{ github.event.client_payload.description }}" >> $GITHUB_ENV
+          echo "DESCRIPTION_FR=${{ github.event.client_payload.description_fr }}" >> $GITHUB_ENV
+          echo "NOTE=${{ github.event.client_payload.note }}" >> $GITHUB_ENV
+          echo "DOWNLOAD=${{ github.event.client_payload.download }}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=update-version-${{ github.sha }}" >> $GITHUB_ENV
 
       - name: Run push_new_version script
         run: |
-          node script/push_new_version.mjs \
-            --version "${{ github.event.client_payload.version }}" \
-            --label "${{ github.event.client_payload.label }}" \
-            --label_fr "${{ github.event.client_payload.label_fr }}" \
-            --description "${{ github.event.client_payload.description }}" \
-            --description_fr "${{ github.event.client_payload.description_fr }}" \
-            --note "${{ github.event.client_payload.note }}" \
-            --download "${{ github.event.client_payload.download }}"
+          node scripts/push_new_version.mjs \
+            --commitAndPush "false" \
+            --version "$VERSION" \
+            --label "$LABEL" \
+            --label_fr "$LABEL_FR" \
+            --description "$DESCRIPTION" \
+            --description_fr "$DESCRIPTION_FR" \
+            --note "$NOTE" \
+            --download "$DOWNLOAD"
+
+      - name: Create a pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          # base: main
+          branch: ${{ env.BRANCH_NAME}}
+          commit-message: Add version ${{ env.VERSION }}
+          title: Automated version update to ${{ env.VERSION }}
+          body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
+          author: ChickArmy[bot] <github-actions[bot].chickarmy@users.noreply.github.com>
+
+      - name: Find Pull Request
+        id: find_pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branchName = '${{ env.BRANCH_NAME }}';
+            console.log(`Searching for pull request for branch: ${branchName}`);
+            console.log(`Owner: ${context.repo.owner}, Repo: ${context.repo.repo}`);
+            // DEBUG / console.log(context)
+            
+            const prs = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+            });
+
+            const pr = prs.data.find(pr => pr.head.ref === branchName);
+            if (pr) {
+              console.log(`Found pull request: #${pr.number} - ${pr.title}`);
+              return pr.number;
+            } else {
+              console.log('No pull request found for this branch.');
+              return null;
+            }
+
+      # BYPASS_USER_PAT - fine-grained PAT with content+pullrequest write from user that can review
+      - name: Merge Pull Request using authorized user to bypass rule
+        if: ${{ steps.find_pr.outputs.result != '' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ env.BYPASS_USER_PAT }}
+          script: |
+            const pull_number = ${{ steps.find_pr.outputs.result }};
+            console.log(`Merging pull request: #${pull_number}`);
+            await github.rest.pulls.merge({ 
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number, 
+                  merge_method: 'rebase' // or 'squash' or 'merge'
+            });
+            console.log(`Pull request #${pull_number} merged successfully.`);
+        env:
+          BYPASS_USER_PAT: ${{ secrets.BYPASS_USER_PAT }}
