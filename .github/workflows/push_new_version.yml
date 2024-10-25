@@ -56,7 +56,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           # base: main
-          branch: ${{ env.BRANCH_NAME}}
+          # branch: ${{ env.BRANCH_NAME}}
           commit-message: Add version ${{ env.VERSION }}
           title: Automated version update to ${{ env.VERSION }}
           body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
