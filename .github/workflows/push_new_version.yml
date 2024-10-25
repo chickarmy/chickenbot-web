@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        node-version: [ 22.x ]
+        node-version: [ 20.x ]
 
     steps:
       - name: Checkout repository
@@ -56,7 +56,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           # base: main
-          # branch: ${{ env.BRANCH_NAME}}
+          branch: ${{ env.BRANCH_NAME}}
           commit-message: Add version ${{ env.VERSION }}
           title: Automated version update to ${{ env.VERSION }}
           body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
@@ -67,8 +67,10 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const branchName = '${{ env.BRANCH_NAME }}'.replace('refs/heads/', '');
+            const branchName = '${{ env.BRANCH_NAME }}';
             console.log(`Searching for pull request for branch: ${branchName}`);
+            console.log(`Owner: ${context.repo.owner}, Repo: ${context.repo.repo}`);
+            console.log(context)
             
             const prs = await github.pulls.list({
               owner: context.repo.owner,
