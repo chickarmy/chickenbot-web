@@ -37,10 +37,10 @@ jobs:
           echo "DESCRIPTION_FR=${{ github.event.client_payload.description_fr }}" >> $GITHUB_ENV
           echo "NOTE=${{ github.event.client_payload.note }}" >> $GITHUB_ENV
           echo "DOWNLOAD=${{ github.event.client_payload.download }}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=update-version-${{ github.sha }}" >> $GITHUB_ENV
 
       - name: Run push_new_version script
         run: |
-          BRANCH_NAME="update-version-${{ github.sha }}"
           git config --global user.email "github-actions[bot].chickarmy@users.noreply.github.com"
           git config --global user.name "ChickArmy[bot]"
           git checkout -b "$BRANCH_NAME"
