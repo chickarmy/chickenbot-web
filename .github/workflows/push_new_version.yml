@@ -81,17 +81,18 @@ jobs:
             const pr = prs.data.find(pr => pr.head.ref === branchName);
             if (pr) {
               console.log(`Found pull request: #${pr.number} - ${pr.title}`);
-              echo "PR_NUMBER=${pr.number}" >> $GITHUB_ENV
+              return pr.number;
             } else {
               console.log('No pull request found for this branch.');
+              return null;
             }
 
       - name: Merge Pull Request
-        if: env.PR_NUMBER != ''
+        if: ${{ steps.find_pr.outputs.result != '' }}
         uses: actions/github-script@v7
         with:
           script: |
-            const prNumber = steps.find_pr.outputs.result;
+            const prNumber = ${{ steps.find_pr.outputs.result }};
             console.log(`Merging pull request: #${prNumber}`);
             await github.rest.pulls.merge({
               owner: context.repo.owner,
