@@ -72,7 +72,7 @@ jobs:
             console.log(`Owner: ${context.repo.owner}, Repo: ${context.repo.repo}`);
             console.log(context)
             
-            const prs = await github.pulls.list({
+            const prs = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
