@@ -62,28 +62,40 @@ jobs:
           body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
           author: ChickArmy[bot] <github-actions[bot].chickarmy@users.noreply.github.com>
 
-      - name: Merge PR if possible
-        if: success()
-        uses: actions/github-script@v6
+      - name: Find Pull Request
+        id: find_pr
+        uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            console.log(`Try to merge PR for branch:${BRANCH_NAME}.`);
-            const { data: pullRequests } = await github.pulls.list({
+            const branchName = '${{ env.BRANCH_NAME }}'.replace('refs/heads/', '');
+            console.log(`Searching for pull request for branch: ${branchName}`);
+            
+            const prs = await github.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              head: context.repo.owner + ':' + `${BRANCH_NAME}`,
             });
-            if (pullRequests.length > 0) {
-              const pull_number = pullRequests[0].number;
-              await github.pulls.merge({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: pull_number,
-                merge_method: 'squash',  # ou 'merge' ou 'rebase'
-              });
-              console.log(`PR #${pull_number} merged successfully.`);
+
+            const pr = prs.data.find(pr => pr.head.ref === branchName);
+            if (pr) {
+              console.log(`Found pull request: #${pr.number} - ${pr.title}`);
+              return pr.number;
             } else {
-              console.log("No open PR found for merging.");
+              console.log('No pull request found for this branch.');
+              return null;
             }
+
+      - name: Merge Pull Request
+        if: steps.find_pr.outputs.result != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = steps.find_pr.outputs.result;
+            console.log(`Merging pull request: #${prNumber}`);
+            await github.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              merge_method: 'rebase', // ou 'squash' ou 'merge'
+            });
+            console.log(`Pull request #${prNumber} merged successfully.`);
