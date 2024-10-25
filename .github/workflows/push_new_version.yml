@@ -4,6 +4,7 @@ name: Push_new_version
 # WARN : need write main protection rule
 permissions:
   contents: write
+  pull-requests: write
 
 on:
   repository_dispatch:
@@ -41,9 +42,6 @@ jobs:
 
       - name: Run push_new_version script
         run: |
-          git config --global user.email "github-actions[bot].chickarmy@users.noreply.github.com"
-          git config --global user.name "ChickArmy[bot]"
-          git checkout -b "$BRANCH_NAME"
           node scripts/push_new_version.mjs \
             --commitAndPush "false" \
             --version "$VERSION" \
@@ -53,21 +51,16 @@ jobs:
             --description_fr "$DESCRIPTION_FR" \
             --note "$NOTE" \
             --download "$DOWNLOAD"
-          git add .
-          git commit -m "Add version ${VERSION}"
-          git push origin "${BRANCH_NAME}"
 
       - name: Create a pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Update version to ${{ env.VERSION }}
+          # base: main
           branch: ${{ env.BRANCH_NAME}}
-          base: main
+          commit-message: Add version ${{ env.VERSION }}
           title: Automated version update to ${{ env.VERSION }}
           body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
           author: ChickArmy[bot] <github-actions[bot].chickarmy@users.noreply.github.com>
-          delete-branch: true
 
       - name: Merge PR if possible
         if: success()
