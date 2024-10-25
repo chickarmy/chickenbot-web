@@ -1,6 +1,7 @@
 name: Push_new_version
 # this workflow is triggered by another repository
 
+# WARN : need write main protection rule
 permissions:
   contents: write
 

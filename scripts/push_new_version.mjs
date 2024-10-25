@@ -67,8 +67,8 @@ const createBlogPosts = async (options) => {
 
 async function execCommitAndPush(version) {
     // Git commit and push to trigger redeployment
-    await execAsync('git config --global user.email "chickarmy@github.com"');
-    await execAsync('git config --global user.name "ChickArmy-bot"');
+    await execAsync('git config --global user.email "github-actions[bot].chickarmy@users.noreply.github.com"');
+    await execAsync('git config --global user.name "ChickArmy[bot]"');
     await execAsync('git add .');
     await execAsync(`git commit -m "Add new version ${version} and update versions.json"`);
     await execAsync('git push');
