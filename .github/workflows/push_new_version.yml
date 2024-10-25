@@ -61,13 +61,14 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Update version to $VERSION"
-          branch: "$BRANCH_NAME"  # Branche à partir de laquelle créer la PR
-          base: "main"  # Branche de destination de la PR
-          title: "Automated version update to $VERSION"
-          body: "This PR updates the version file automatically. Generated from `push_new_version.yml`."
+          commit-message: Update version to ${{ env.VERSION }}
+          branch: ${{ env.BRANCH_NAME}}
+          base: main
+          title: Automated version update to ${{ env.VERSION }}
+          body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
+          author: ChickArmy[bot] <github-actions[bot].chickarmy@users.noreply.github.com>
+          delete-branch: true
 
-      # Optionnel : Automerge la PR si les checks sont valides et si le dépôt autorise l’automerge
       - name: Merge PR if possible
         if: success()
         uses: actions/github-script@v6
