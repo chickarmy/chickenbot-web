@@ -1,5 +1,14 @@
 [
   {
+    "version": "v0.0.19-test",
+    "label": "release v0.0.19-test",
+    "label_fr": "release v0.0.19-test",
+    "description": "This is the TEST description",
+    "description_fr": "Ceci est la description TEST",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.19-test",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.19-test/package.readme.txt"
+  },
+  {
     "version": "v0.0.18-test",
     "label": "release v0.0.18-test",
     "label_fr": "release v0.0.18-test",
@@ -16,13 +25,5 @@
     "description_fr": "ZOOOOOOOOOOOOOOOOOuby la\nkenobi",
     "note": "https://google.fr",
     "download": "https://example.com"
-  },
-  {
-    "version": "0.3",
-    "label": "0.3 new version",
-    "description": "This version.3 is the latest release with new features.",
-    "description_fr": "Cette version.3 est la dernière version avec de nouvelles fonctionnalités.",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.11",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.11/package.zip"
   }
 ]
