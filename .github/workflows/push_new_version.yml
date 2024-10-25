@@ -27,23 +27,68 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Get the inputs
+      # inputs github.event.client_payload : version,label,label_fr,description,description_fr,note,download
+      - name: Read input variables from client_payload as env variables
         run: |
-          echo "Version: ${{ github.event.client_payload.version }}"
-          echo "Label: ${{ github.event.client_payload.label }}"
-          echo "Label FR: ${{ github.event.client_payload.label_fr }}"
-          echo "Description: ${{ github.event.client_payload.description }}"
-          echo "Description FR: ${{ github.event.client_payload.description_fr }}"
-          echo "Note: ${{ github.event.client_payload.note }}"
-          echo "Download: ${{ github.event.client_payload.download }}"
+          echo "VERSION=${{ github.event.client_payload.version }}" >> $GITHUB_ENV
+          echo "LABEL=${{ github.event.client_payload.label }}" >> $GITHUB_ENV
+          echo "LABEL_FR=${{ github.event.client_payload.label_fr }}" >> $GITHUB_ENV
+          echo "DESCRIPTION=${{ github.event.client_payload.description }}" >> $GITHUB_ENV
+          echo "DESCRIPTION_FR=${{ github.event.client_payload.description_fr }}" >> $GITHUB_ENV
+          echo "NOTE=${{ github.event.client_payload.note }}" >> $GITHUB_ENV
+          echo "DOWNLOAD=${{ github.event.client_payload.download }}" >> $GITHUB_ENV
 
       - name: Run push_new_version script
         run: |
+          BRANCH_NAME="update-version-${{ github.sha }}"
+          git config --global user.email "github-actions[bot].chickarmy@users.noreply.github.com"
+          git config --global user.name "ChickArmy[bot]"
+          git checkout -b "$BRANCH_NAME"
           node scripts/push_new_version.mjs \
-            --version "${{ github.event.client_payload.version }}" \
-            --label "${{ github.event.client_payload.label }}" \
-            --label_fr "${{ github.event.client_payload.label_fr }}" \
-            --description "${{ github.event.client_payload.description }}" \
-            --description_fr "${{ github.event.client_payload.description_fr }}" \
-            --note "${{ github.event.client_payload.note }}" \
-            --download "${{ github.event.client_payload.download }}"
+            --commitAndPush "false" \
+            --version "$VERSION" \
+            --label "$LABEL" \
+            --label_fr "$LABEL_FR" \
+            --description "$DESCRIPTION" \
+            --description_fr "$DESCRIPTION_FR" \
+            --note "$NOTE" \
+            --download "$DOWNLOAD"
+          git add .
+          git commit -m "Add version ${VERSION}"
+          git push origin "${BRANCH_NAME}"
+
+      - name: Create a pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update version to $VERSION"
+          branch: "$BRANCH_NAME"  # Branche à partir de laquelle créer la PR
+          base: "main"  # Branche de destination de la PR
+          title: "Automated version update to $VERSION"
+          body: "This PR updates the version file automatically. Generated from `push_new_version.yml`."
+
+      # Optionnel : Automerge la PR si les checks sont valides et si le dépôt autorise l’automerge
+      - name: Merge PR if possible
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: pullRequests } = await github.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: context.repo.owner + ':' + '${BRANCH_NAME}',
+            });
+            if (pullRequests.length > 0) {
+              const pull_number = pullRequests[0].number;
+              await github.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pull_number,
+                merge_method: 'squash',  # ou 'merge' ou 'rebase'
+              });
+              console.log(`PR #${pull_number} merged successfully.`);
+            } else {
+              console.log("No open PR found for merging.");
+            }
