@@ -146,6 +146,9 @@ const config = {
     plugins: [[ require.resolve('docusaurus-lunr-search'), {
         languages: ['en', 'fr'] // language codes
     }]],
+    scripts: [
+      { src: "https://cloud.umami.is/script.js", async: true, "data-website-id": "b1eb5f43-f2b2-4fc9-a5bc-44549dddd65e" }
+    ]
 };
 
 export default config;
