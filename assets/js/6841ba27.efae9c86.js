@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchickenbot_web=self.webpackChunkchickenbot_web||[]).push([[662],{1204:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/chickenbot-web/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
