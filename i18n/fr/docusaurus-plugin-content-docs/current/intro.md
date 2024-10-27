@@ -4,8 +4,6 @@ sidebar_position: 1
 
 # Bienvenue
 
-Bienvenue sur **le site Chickenbot**.
+Commencez par lire **[l'installation du bot](./setup)**.
 
-## Démarrage
-
-Démarrez par **lire [comment installer le bot](./bot-setup)**.
+Puis continuez en lisant **[le guide d'utilisation du bot](/docs/category/user-guide)**.

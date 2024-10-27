@@ -38,13 +38,15 @@ function HomepageHeader() {
                     {siteConfig.title}
                 </Heading>
                 <p className="hero__subtitle">{siteConfig.tagline}</p>
-                <div className={styles.buttons}>
-                    <Link
-                        className="button button--secondary button--lg"
-                        to={lastVersion.download}>
-                        Download Chickenbot {lastVersion.label}
-                    </Link>
-                </div>
+                { lastVersion && (
+                    <div className={styles.buttons}>
+                        <Link
+                            className="button button--secondary button--lg"
+                            to={lastVersion.download}>
+                            Download Chickenbot {lastVersion.label}
+                        </Link>
+                    </div>
+                )}
             </div>
         </header>
     );
@@ -56,7 +58,7 @@ export default function Home() {
             <Layout
                 title={`Hello from ${siteConfig.title}`}
                 description="Chickenbot description for meta tag in <head />">
-                <main>
+            <main>
                     <HomepageFeatures/>
                     <HomepageHeader/>
                     <HomepageVersions/>
