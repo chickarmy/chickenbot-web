@@ -5,6 +5,9 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 function VersionEntry({locale, version, label,
                           description, description_fr,download, note}) {
+    if (version === undefined) {
+        return null;
+    }
     return (
         <div className={clsx('col col--4')}>
             <div className={styles.botVersion}>

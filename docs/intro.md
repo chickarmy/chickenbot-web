@@ -4,8 +4,6 @@ sidebar_position: 1
 
 # Welcome
 
-Welcome to **Chickenbot website**.
+Start by reading **[bot setup](./setup)**.
 
-## Getting Started
-
-Get started by **reading [bot setup](./bot-setup)**.
+Then continue by reading **[bot user guide](/docs/userguide)**.
