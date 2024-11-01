@@ -32,14 +32,22 @@ jobs:
       # inputs github.event.client_payload : version,label,label_fr,description,description_fr,note,download
       - name: Read input variables from client_payload as env variables
         run: |
-          echo "VERSION=${{ github.event.client_payload.version }}" >> $GITHUB_ENV
-          echo "LABEL=${{ github.event.client_payload.label }}" >> $GITHUB_ENV
-          echo "LABEL_FR=${{ github.event.client_payload.label_fr }}" >> $GITHUB_ENV
-          echo "DESCRIPTION=${{ github.event.client_payload.description }}" >> $GITHUB_ENV
-          echo "DESCRIPTION_FR=${{ github.event.client_payload.description_fr }}" >> $GITHUB_ENV
-          echo "NOTE=${{ github.event.client_payload.note }}" >> $GITHUB_ENV
-          echo "DOWNLOAD=${{ github.event.client_payload.download }}" >> $GITHUB_ENV
-          echo "BRANCH_NAME=update-version-${{ github.sha }}" >> $GITHUB_ENV
+          # Function to write a variable to $GITHUB_ENV handling newlines and quotes
+          write_env_var() {
+            local var_name="$1"
+            local payload_value="$2"
+            # Handle newlines and quotes to avoid issues in the environment file
+            echo -n "${var_name}=" >> $GITHUB_ENV
+            echo -e "${payload_value}" | sed ':a;N;$!ba;s/\n/\\n/g; s/\'/’/g' >> $GITHUB_ENV
+          }
+          # Extract fields from payload and process for multiline handling
+          write_env_var "VERSION" "${{ github.event.client_payload.version }}"
+          write_env_var "LABEL" "${{ github.event.client_payload.label }}"
+          write_env_var "LABEL_FR" "${{ github.event.client_payload.label_fr }}"
+          write_env_var "DESCRIPTION" "${{ github.event.client_payload.description }}"
+          write_env_var "DESCRIPTION_FR" "${{ github.event.client_payload.description_fr }}"
+          write_env_var "NOTE" "${{ github.event.client_payload.note }}"
+          write_env_var "DOWNLOAD" "${{ github.event.client_payload.download }}"
 
       - name: Run push_new_version script
         run: |
