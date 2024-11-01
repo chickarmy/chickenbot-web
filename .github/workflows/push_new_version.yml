@@ -48,6 +48,8 @@ jobs:
           write_env_var "DESCRIPTION_FR" "${{ github.event.client_payload.description_fr }}"
           write_env_var "NOTE" "${{ github.event.client_payload.note }}"
           write_env_var "DOWNLOAD" "${{ github.event.client_payload.download }}"
+          # craft a new branch name
+          echo "BRANCH_NAME=update-version-${{ github.sha }}" >> $GITHUB_ENV
 
       - name: Run push_new_version script
         run: |
