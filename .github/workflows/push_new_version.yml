@@ -38,7 +38,7 @@ jobs:
             local payload_value="$2"
             # Handle newlines and quotes to avoid issues in the environment file
             echo -n "${var_name}=" >> $GITHUB_ENV
-            echo -e "${payload_value}" | sed ':a;N;$!ba;s/\n/\\n/g; s/\'/’/g' >> $GITHUB_ENV
+            echo -e "${payload_value}" | sed ':a;N;$!ba;s/\n/\\n/g; s/'\''/’/g' >> $GITHUB_ENV
           }
           # Extract fields from payload and process for multiline handling
           write_env_var "VERSION" "${{ github.event.client_payload.version }}"
