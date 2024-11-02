@@ -14,6 +14,8 @@ const frBlogDirectory = 'i18n/fr/docusaurus-plugin-content-blog';
 // Function to sort versions in descending order
 const sortVersions = (a, b) => b.version.localeCompare(a.version);
 
+const renderCarriageReturn = value => value?.replace(/\\n/g, '\n');
+
 async function updateVersionsFile(options) {
     const {version, label, label_fr, description, description_fr, note, download} = options
     // Read and parse versions.json
@@ -37,14 +39,13 @@ async function updateVersionsFile(options) {
 }
 
 async function createBlogPost(template, label, version, description, note, download, date, postPath) {
-
     let template_en = template
-        .replace(/{{version}}/g, version)
-        .replace(/{{label}}/g, label)
-        .replace(/{{description}}/g, description)
-        .replace(/{{note}}/g, note)
-        .replace(/{{download}}/g, download)
-        .replace(/{{date}}/g, date);
+        .replace(/{{version}}/g, renderCarriageReturn(version))
+        .replace(/{{label}}/g, renderCarriageReturn(label))
+        .replace(/{{description}}/g, renderCarriageReturn(description))
+        .replace(/{{note}}/g, renderCarriageReturn(note))
+        .replace(/{{download}}/g, renderCarriageReturn(download))
+        .replace(/{{date}}/g, renderCarriageReturn(date));
     await fs.writeFile(postPath, template_en, 'utf-8');
     console.log(`Blog post created: ${postPath}`);
 }
