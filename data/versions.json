@@ -7,23 +7,5 @@
     "description_fr": "Ceci est la description TEST",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.20-test",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.20-test/package.readme.txt"
-  },
-  {
-    "version": "0.0.5",
-    "label": "0.0.5 FAKE version",
-    "label_fr": "0.0.5 FAKE version",
-    "description": "this is 0.0.5 version \nthis version is amazing\nblah blah blah\n",
-    "description_fr": "TEST TEST",
-    "note": "https://google.fr",
-    "download": "https://example.com"
-  },
-  {
-    "version": "0.0.3",
-    "label": "0.0.3 FAKE version",
-    "label_fr": "0.0.3 FAKE version",
-    "description": "This version 0.0.3 is the latest release with new features.",
-    "description_fr": "Cette version 0.0.3 est la dernière version avec de nouvelles fonctionnalités.",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.3",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.3/package.zip"
   }
 ]
