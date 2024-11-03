@@ -1,11 +1,2 @@
 [
-  {
-    "version": "v0.0.20-test",
-    "label": "release v0.0.20-test",
-    "label_fr": "release v0.0.20-test",
-    "description": "This is the TEST description",
-    "description_fr": "Ceci est la description TEST",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.20-test",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.20-test/package.readme.txt"
-  }
 ]
