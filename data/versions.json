@@ -12,7 +12,7 @@
     "version": "0.0.001",
     "label": "test release 0.0.001",
     "label_fr": "test publication 0.0.001",
-    "description": "This is the publish version TEST description",
+    "description": "OH !\\nHey friends,\\nthis is a TEST of a fake version description\\n",
     "description_fr": "AH !\\nCeci les amis\\nest un test de publication\\nd’une fausse version de test \\n",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/0.0.001",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/0.0.001/package.readme.txt"
