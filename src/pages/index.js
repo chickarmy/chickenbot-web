@@ -58,7 +58,7 @@ export default function Home() {
             <Layout
                 title={`Hello from ${siteConfig.title}`}
                 description="Chickenbot description for meta tag in <head />">
-            <main>
+                <main>
                     <HomepageFeatures/>
                     <HomepageHeader/>
                     <HomepageVersions/>
