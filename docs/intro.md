@@ -6,4 +6,4 @@ sidebar_position: 1
 
 Start by reading **[bot setup](./setup)**.
 
-Then continue by reading **[bot user guide](/docs/userguide)**.
+Then continue by reading **[bot user guide](/docs/category/user-guide)**.

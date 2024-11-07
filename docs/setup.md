@@ -24,6 +24,6 @@ Once the executable file is located on your workstation, start it !
 
 A desktop application popup must appears. You're in ! 
 
-Continue by reading **[bot user guide](/docs/category/userguide)**.
+Continue by reading **[bot user guide](/docs/category/user-guide)**.
 
 To get more advanced tips about setup, cf. [this page](./setup-advanced.md).
