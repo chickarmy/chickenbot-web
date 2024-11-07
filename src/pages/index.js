@@ -28,9 +28,11 @@ function compareVersions(v1, v2) {
 }
 
 function HomepageHeader() {
-    const {siteConfig} = useDocusaurusContext();
+    const {siteConfig,i18n} = useDocusaurusContext();
+    const locale = i18n.currentLocale;
     const lastVersion = maxVersion(versions);
-
+    let downloadLabel = locale === 'fr' ? "Télécharger " : "Download ";
+    let versionLabel = locale === 'fr' ? lastVersion?.label_fr : lastVersion?.label;
     return (
         <header className={clsx('hero hero--primary', styles.heroBanner)}>
             <div className="container">
@@ -43,7 +45,7 @@ function HomepageHeader() {
                         <Link
                             className="button button--secondary button--lg"
                             to={lastVersion.download}>
-                            Download Chickenbot {lastVersion.label}
+                            {downloadLabel} Chickenbot {versionLabel}
                         </Link>
                     </div>
                 )}
