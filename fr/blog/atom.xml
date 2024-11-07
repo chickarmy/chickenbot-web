@@ -2,44 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://boly38.github.io/chickenbot-web/fr/blog</id>
     <title>🐔 ChickenBot Blog</title>
-    <updated>2024-11-01T00:00:00.000Z</updated>
+    <updated>2024-11-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://boly38.github.io/chickenbot-web/fr/blog"/>
     <subtitle>🐔 ChickenBot Blog</subtitle>
     <icon>https://boly38.github.io/chickenbot-web/fr/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Release test publication 0.0.001]]></title>
-        <id>https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-0.0.001</id>
-        <link href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-0.0.001"/>
-        <updated>2024-11-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Version 0.0.001]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="version-00001">Version 0.0.001<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-0.0.001#version-00001" class="hash-link" aria-label="Lien direct vers Version 0.0.001" title="Lien direct vers Version 0.0.001">​</a></h2>
-<p>Chickenbot release 0.0.001</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="description">Description<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-0.0.001#description" class="hash-link" aria-label="Lien direct vers Description" title="Lien direct vers Description">​</a></h3>
-<p>AH !\nCeci les amis\nest un test de publication\nd’une fausse version de test \n</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-0.0.001#download" class="hash-link" aria-label="Lien direct vers Download" title="Lien direct vers Download">​</a></h3>
-<p><a href="https://github.com/chickarmy/chickenbot-web/releases/download/0.0.001/package.readme.txt" target="_blank" rel="noopener noreferrer">Download Binary</a></p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Info</div><div class="admonitionContent_BuS1"><p><a href="https://github.com/chickarmy/chickenbot-web/releases/tag/0.0.001" target="_blank" rel="noopener noreferrer">Release Notes</a></p></div></div>]]></content>
-        <author>
-            <name>Chickarmy</name>
-            <uri>https://github.com/chickarmy</uri>
-        </author>
-        <category label="Chickenbot" term="Chickenbot"/>
-        <category label="Version" term="Version"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release release v0.0.20-test]]></title>
-        <id>https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-v0.0.20-test</id>
-        <link href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-v0.0.20-test"/>
-        <updated>2024-10-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Version v0.0.20-test]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="version-v0020-test">Version v0.0.20-test<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-v0.0.20-test#version-v0020-test" class="hash-link" aria-label="Lien direct vers Version v0.0.20-test" title="Lien direct vers Version v0.0.20-test">​</a></h2>
-<p>Chickenbot release v0.0.20-test</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="description">Description<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-v0.0.20-test#description" class="hash-link" aria-label="Lien direct vers Description" title="Lien direct vers Description">​</a></h3>
-<p>Ceci est la description TEST</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-v0.0.20-test#download" class="hash-link" aria-label="Lien direct vers Download" title="Lien direct vers Download">​</a></h3>
-<p><a href="https://github.com/chickarmy/chickenbot-web/releases/download/v0.0.20-test/package.readme.txt" target="_blank" rel="noopener noreferrer">Download Binary</a></p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Info</div><div class="admonitionContent_BuS1"><p><a href="https://github.com/chickarmy/chickenbot-web/releases/tag/v0.0.20-test" target="_blank" rel="noopener noreferrer">Release Notes</a></p></div></div>]]></content>
+        <title type="html"><![CDATA[Release publication 1.0.0]]></title>
+        <id>https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-1.0.0</id>
+        <link href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-1.0.0"/>
+        <updated>2024-11-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.0.0]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="version-100">Version 1.0.0<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-1.0.0#version-100" class="hash-link" aria-label="Lien direct vers Version 1.0.0" title="Lien direct vers Version 1.0.0">​</a></h2>
+<p>Chickenbot release 1.0.0</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="description">Description<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-1.0.0#description" class="hash-link" aria-label="Lien direct vers Description" title="Lien direct vers Description">​</a></h3>
+<p>La version 1.0.0 est la toute première version publique de ChickenBot !</p>
+<p>ChickenBot est une application de Bureau Windows autonome qui permet de démarrer un joueur Minecraft automatisé :
+On parle ici de ’robot’, ou ’bot’ en anglais.</p>
+<p>Le principal objectif de cette application est de permettre à un large public de créer simplement des robots Minecraft amusants.</p>
+<p>Dans cette version initiale vous pouvez configurer le robot avec une ou plusieurs fonctions :</p>
+<ul>
+<li>fonction ’welcome’ (max:1) : indiquer le chat que prononce le robot à son apparition (ou réapparition),</li>
+<li>fonction ’reply’ (1 ou plusieurs) une ou plusieurs question/réponse: le robot détecte un chat particulier et répond avec un chat particulier,</li>
+<li>fonction ’follow-me’ (max:1) demander à votre robot de vous suivre, ou d’arrêter de vous suivre.</li>
+</ul>
+<p>C’est une application Freemium. La version 1.0.0 est 100% gratuite.
+Il est possible que dans de futures versions, certaines (nouvelles futures) fonctions soient payantes.</p>
+<p>Voici enfin quelques précisions techniques et conditions d’utilisation.</p>
+<p>Les interactions entre l’application et l’extérieur sont les suivantes :</p>
+<ul>
+<li>suivant la configuration du(des) robot(s), échanges avec le(s) serveur(s) Minecraft pour piloter leur connexion/actions,</li>
+<li>envoi de statistiques anonymisées d’utilisation de l’application vers une <a href="https://umami.is/docs/cloud" target="_blank" rel="noopener noreferrer">instance Cloud Umami</a>.</li>
+</ul>
+<p>Utiliser l’application ChickenBot revient à accepter ces conditions d’utilisation et donc l’envoi de statistiques anonymisés.
+En transparence, le guide installation montre comment activer le debug et tracer ces appels.
+Les statistiques anonymisées servent à mieux connaître les usages de l’application, et à améliorer les futures versions.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="télécharger">Télécharger<a href="https://boly38.github.io/chickenbot-web/fr/blog/chickenbot-release-1.0.0#t%C3%A9l%C3%A9charger" class="hash-link" aria-label="Lien direct vers Télécharger" title="Lien direct vers Télécharger">​</a></h3>
+<p><a href="https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.0/chicken-bot.1.0.0.exe" target="_blank" rel="noopener noreferrer">Télécharger le binaire</a></p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Info</div><div class="admonitionContent_BuS1"><p><a href="https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Note de version</a></p></div></div>]]></content>
         <author>
             <name>Chickarmy</name>
             <uri>https://github.com/chickarmy</uri>
