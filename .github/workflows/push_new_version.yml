@@ -7,6 +7,9 @@ permissions:
   contents: write
   pull-requests: write
 
+## Actions > Secrets
+# BYPASS_USER_PAT - fine-grained PAT with content+pullrequest write from user that can review
+
 on:
   repository_dispatch:
     types: [push-new-version]
@@ -64,8 +67,10 @@ jobs:
             --download "$DOWNLOAD"
 
       - name: Create a pull request
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.BYPASS_USER_PAT }}
           # base: main
           branch: ${{ env.BRANCH_NAME}}
           commit-message: Add version ${{ env.VERSION }}
@@ -73,39 +78,111 @@ jobs:
           body: This PR updates the version file automatically. Generated from `push_new_version.yml`.
           author: ChickArmy[bot] <github-actions[bot].chickarmy@users.noreply.github.com>
 
-      - name: Find Pull Request
-        id: find_pr
+      - name: Create Pull request outputs
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+
+      # WARN this step expects at least 1 check in success to pass ! (0 check results in timeout error)
+      - name: Wait for PR related Checks to Pass
+        if: ${{ steps.cpr.outputs.pull-request-number }}
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.BYPASS_USER_PAT }}
           script: |
-            const branchName = '${{ env.BRANCH_NAME }}';
-            console.log(`Searching for pull request for branch: ${branchName}`);
-            console.log(`Owner: ${context.repo.owner}, Repo: ${context.repo.repo}`);
-            // DEBUG / console.log(context)
+            const prNumber = ${{ steps.cpr.outputs.pull-request-number }};
+            let allChecksCompleted = false;
+            const checkInterval = 30 * 1000; // 30 seconds
+            const maxAttempts = 20; // Total wait time = maxAttempts * checkInterval
+            let attempt = 0;
+            let checks = [];
             
-            const prs = await github.rest.pulls.list({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
+            while (attempt < maxAttempts) {
+              console.log(`Checking status of CI/CD checks (Attempt ${attempt + 1}/${maxAttempts})...`);
+            
+              try {
+                // Get PR details to retrieve PR SHA
+                const { data: { head: { sha } } } = await github.rest.pulls.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: prNumber,
+                });
+            
+                console.log(`ℹ️ PR #${prNumber} ref is ${sha}`);
+            
+                // Get PR checks
+                const { data } = await github.rest.checks.listForRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: sha,
+                });
+                checks = data.check_runs;
+            
+                if (checks.length < 1) {
+                  console.log('⌛ Await until CI/CD at least one check_run appears.');
+                } else {
+                  console.log("checks :\n" + JSON.stringify(checks, null, 2));
+                  allChecksCompleted = checks.every(check => check.status === 'completed');
+                  if (allChecksCompleted) {
+                    console.log(`ℹ️ ${checks.length} CI/CD checks have completed.`);
+                    break;
+                  } else {
+                    console.log(`⌛ Not all ${checks.length} checks are complete yet. Waiting...`);
+                  }
+                }
+              } catch (error) {
+                if (error.status === 404) {
+                  console.log('⌛ Pull request not yet available, waiting...');
+                } else {
+                  throw error; // Rethrow if it's a different error
+                }
+              }
+            
+              await new Promise(resolve => setTimeout(resolve, checkInterval));
+              attempt++;
+            }
+            
+            if (!allChecksCompleted) {
+              throw new Error(`🔴 Some of ${checks.length} CI/CD checks did not complete within the expected timeframe.`);
+            }
+            
+            // Check if all completed checks passed
+            const failedChecks = [];
+            allChecksPassed = checks.every(check => {
+              const passed = check.conclusion === 'success';
+              if (!passed) {
+                // Gather details for failed checks
+                failedChecks.push({
+                  name: check.name,
+                  conclusion: check.conclusion,
+                  completed_at: check.completed_at,
+                  html_url: check.html_url
+                });
+              }
+              return passed;
             });
 
-            const pr = prs.data.find(pr => pr.head.ref === branchName);
-            if (pr) {
-              console.log(`Found pull request: #${pr.number} - ${pr.title}`);
-              return pr.number;
+            if (!allChecksPassed) {
+              console.log('Some checks failed:');
+              failedChecks.forEach(check => {
+                console.log(`- Name: ${check.name}`);
+                console.log(`  Conclusion: ${check.conclusion}`);
+                console.log(`  Completed at: ${check.completed_at}`);
+                console.log(`  Details: ${check.html_url}`);
+              });
+              throw new Error('🔴 Some CI/CD checks did not pass successfully.');
             } else {
-              console.log('No pull request found for this branch.');
-              return null;
+              console.log(`✅ ${checks.length} CI/CD checks in SUCCESS 🥇`);
             }
 
-      # BYPASS_USER_PAT - fine-grained PAT with content+pullrequest write from user that can review
       - name: Merge Pull Request using authorized user to bypass rule
-        if: ${{ steps.find_pr.outputs.result != '' }}
+        if: ${{ steps.cpr.outputs.pull-request-number }}
         uses: actions/github-script@v7
         with:
-          github-token: ${{ env.BYPASS_USER_PAT }}
+          github-token: ${{ secrets.BYPASS_USER_PAT }}
           script: |
-            const pull_number = ${{ steps.find_pr.outputs.result }};
+            const pull_number = ${{ steps.cpr.outputs.pull-request-number }};
             console.log(`Merging pull request: #${pull_number}`);
             await github.rest.pulls.merge({ 
                   owner: context.repo.owner,
@@ -113,6 +190,4 @@ jobs:
                   pull_number, 
                   merge_method: 'rebase' // or 'squash' or 'merge'
             });
-            console.log(`Pull request #${pull_number} merged successfully.`);
-        env:
-          BYPASS_USER_PAT: ${{ secrets.BYPASS_USER_PAT }}
+            console.log(`✅ Pull request #${pull_number} merged successfully. 🥳`);
