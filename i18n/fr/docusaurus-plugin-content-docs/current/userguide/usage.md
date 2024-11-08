@@ -11,7 +11,7 @@ Veuillez consulter [Comment installer](../setup) pour savoir comment obtenir et 
 ## Votre premier bot Minecraft !
 
 * démarrez l'application.
-* Cliquez sur le bouton "Add a bot" ("Ajouter un robbot").
+* Cliquez sur le bouton "Add a bot" ("Ajouter un robot").
 
 ![add_a_bot.JPG](..%2F..%2F..%2F..%2F..%2Fdata%2Fv1_0%2Fadd_a_bot.JPG)
 
