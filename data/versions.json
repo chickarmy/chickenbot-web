@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.1",
+    "label": "release 1.0.1",
+    "label_fr": "publication 1.0.1",
+    "description": "Version 1.0.1 fixes some bugs, add suggest and test of minecraft server address\\nand add a new feature : collect logs !\\n",
+    "description_fr": "La version 1.0.1 corrige quelques bugs, ajoute la suggestion et test des adresses de serveur minecraft\\net ajoute une nouvelle fonctionnalité : la récolte de bûches !\\n",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.1",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/1.0.1/chicken-bot.exe"
+  },
+  {
     "version": "1.0.0",
     "label": "release 1.0.0",
     "label_fr": "publication 1.0.0",
