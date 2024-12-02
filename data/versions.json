@@ -16,5 +16,14 @@
     "description_fr": "La version 1.0.0 est la toute première version publique de ChickenBot !\\n\\nChickenBot est une application de Bureau Windows autonome qui permet de démarrer un joueur Minecraft automatisé : \\nOn parle ici de ’robot’, ou ’bot’ en anglais.\\n\\nLe principal objectif de cette application est de permettre à un large public de créer simplement des robots Minecraft amusants.\\n",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.0",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.0/chicken-bot.1.0.0.exe"
+  },
+  {
+    "version": "0.0.002",
+    "label": "test release 0.0.002",
+    "label_fr": "test publication 0.0.002",
+    "description": "test 72 release and assets",
+    "description_fr": "test 72 release et assets",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/0.0.002",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/0.0.002/package.readme.txt"
   }
 ]
