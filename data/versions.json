@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.2",
+    "label": "release 1.0.2",
+    "label_fr": "publication 1.0.2",
+    "description": "Version 1.0.2 fixes some bugs, removes some french chat\\nand add a new feature : crafting table !\\n",
+    "description_fr": "La version 1.0.2 corrige quelques bugs, enlève les chat en français\\net ajoute une nouvelle fonctionnalité : la table de craft !\\n",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.2",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.2/chicken-bot.exe"
+  },
+  {
     "version": "1.0.1",
     "label": "release 1.0.1",
     "label_fr": "publication 1.0.1",
