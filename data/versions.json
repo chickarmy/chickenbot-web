@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.3",
+    "label": "release 1.0.3",
+    "label_fr": "publication 1.0.3",
+    "description": "Version 1.0.3 fixes some bugs, improve some chat\\nand simplify minecraft server address form.\\nWe can see tested versions list of Minecraft.\\nThanks to LB and rom1504 for their feedbacks!\\n",
+    "description_fr": "La version 1.0.3 corrige quelques bugs, améliore des chat\\net simplifie le formulaire de l’adresse minecraft serveur.\\nOn peut voir la liste des versions testées de Minecraft.\\nMerci à LB et à rom1504 pour leurs retours!\\n",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.3",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.3/chicken-bot.exe"
+  },
+  {
     "version": "1.0.2",
     "label": "release 1.0.2",
     "label_fr": "publication 1.0.2",
@@ -16,14 +25,5 @@
     "description_fr": "La version 1.0.1 corrige quelques bugs, ajoute la suggestion et test des adresses de serveur minecraft\\net ajoute une nouvelle fonctionnalité : la récolte de bûches !\\n",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.1",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.1/chicken-bot.exe"
-  },
-  {
-    "version": "1.0.0",
-    "label": "release 1.0.0",
-    "label_fr": "publication 1.0.0",
-    "description": "Version 1.0.0 is the very first public version of ChickenBot!\\n\\nChickenBot is a standalone Windows Desktop application that allows you to start an automated Minecraft player:\\nWe are talking about a ’bot’ here, or ’robot’ in French.\\n\\nThe main goal of this application is to allow a wide audience to easily create fun Minecraft bots.\\n",
-    "description_fr": "La version 1.0.0 est la toute première version publique de ChickenBot !\\n\\nChickenBot est une application de Bureau Windows autonome qui permet de démarrer un joueur Minecraft automatisé : \\nOn parle ici de ’robot’, ou ’bot’ en anglais.\\n\\nLe principal objectif de cette application est de permettre à un large public de créer simplement des robots Minecraft amusants.\\n",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.0",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.0/chicken-bot.1.0.0.exe"
   }
 ]
