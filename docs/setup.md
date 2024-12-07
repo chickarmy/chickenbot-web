@@ -22,6 +22,8 @@ Once the executable file is located on your workstation, start it !
  chicken-bot.exe
 ```
 
+Note: this application embeds chromium browser and could taks so much time to appears especially the first time. Be patient. 
+
 A desktop application popup must appears. You're in ! 
 
 Continue by reading **[bot user guide](/docs/category/user-guide)**.

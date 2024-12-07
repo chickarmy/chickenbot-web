@@ -20,6 +20,8 @@ Une fois le fichier exécutable localisé sur votre poste de travail, démarrez-
 chicken-bot.exe
 ```
 
+Remarque : cette application intègre le navigateur Chromium et peut prendre beaucoup de temps à apparaître, surtout la première fois. Soyez patient.
+
 Une fenêtre d'application de bureau doit apparaître. Vous y êtes !
 
 Continuez en lisant **[guide d'utilisation du bot](/docs/category/user-guide)**.
