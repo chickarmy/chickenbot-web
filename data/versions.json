@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.4",
+    "label": "release 1.0.4",
+    "label_fr": "publication 1.0.4",
+    "description": "Version 1.0.4 fixes collect logs bug, and UI unexpected label.\\n",
+    "description_fr": "La version 1.0.4 corrige le bug de collecte de bois et le label inattendu sur l’interface.\\n",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.4",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.4/chicken-bot.exe"
+  },
+  {
     "version": "1.0.3",
     "label": "release 1.0.3",
     "label_fr": "publication 1.0.3",
@@ -16,14 +25,5 @@
     "description_fr": "La version 1.0.2 corrige quelques bugs, enlève les chat en français\\net ajoute une nouvelle fonctionnalité : la table de craft !\\n",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.2",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.2/chicken-bot.exe"
-  },
-  {
-    "version": "1.0.1",
-    "label": "release 1.0.1",
-    "label_fr": "publication 1.0.1",
-    "description": "Version 1.0.1 fixes some bugs, add suggest and test of minecraft server address\\nand add a new feature : collect logs !\\n",
-    "description_fr": "La version 1.0.1 corrige quelques bugs, ajoute la suggestion et test des adresses de serveur minecraft\\net ajoute une nouvelle fonctionnalité : la récolte de bûches !\\n",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.1",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.1/chicken-bot.exe"
   }
 ]
