@@ -103,13 +103,15 @@ const config = {
                     {
                         title: 'Docs',
                         items: [
-                            {label: 'Intro', to: '/docs/intro'},
+                            {label: 'Install', to: '/docs/setup'},
+                            {label: 'Guide', to: '/docs/category/user-guide'},
                         ],
                     },
                     {
                         title: 'Community',
                         items: [
-                            {label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/chickenbot'},
+                            {label: 'discussions [en/fr]', href: 'https://github.com/chickarmy/chickenbot-web/discussions'},
+                            // {label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/chickenbot'},
                             // {label: 'Discord',href: 'https://discordapp.com/invite/docusaurus'},
                             // {label: 'Twitter',href: 'https://twitter.com/docusaurus'},
                         ],
