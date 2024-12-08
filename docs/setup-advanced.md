@@ -24,3 +24,5 @@ In order to augment logs with analytics logs : set `CHICKEN_BOT_VERBOSE_ANALYTIC
 ### Activate more error logs
 
 In order to augment error logs, add `--trace-warnings` to the start command.
+
+An alternate way to show logs (in a dedicated popup window) is to launch exe using this argument ` --enable-logging`.

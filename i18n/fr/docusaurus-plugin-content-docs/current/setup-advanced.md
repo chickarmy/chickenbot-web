@@ -24,3 +24,5 @@ Afin d'augmenter les journaux avec les journaux des statistiques d'utilisation 
 ### Activer davantage de journaux d'erreurs
 
 Afin d'augmenter les journaux d'erreurs, ajoutez `--trace-warnings` à la commande de démarrage.
+
+Une autre façon d'afficher les journaux (dans une fenêtre contextuelle dédiée) est de lancer exe en utilisant cet argument ` --enable-logging`.
