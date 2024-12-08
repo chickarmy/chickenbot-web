@@ -6,7 +6,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 const FeatureList = [
     {
         // Img: {"src": 'img/chickenbot-social-card.gif', "alt": "Build your own bot"},
-        Svg: require('@site/static/img/svg-io-minecraft-golem-bot.svg').default,
+        Svg: require('@site/static/img/svg-io-minecraft-golem-bot2.svg').default,
         title: 'Build your own bot',
         title_fr: 'Construisez votre propre bot',
         description: (
@@ -23,7 +23,7 @@ const FeatureList = [
         ),
     },
     {
-        Svg: require('@site/static/img/svg-io-minecraft-bot-walking-in-the-forest.svg').default,
+        Svg: require('@site/static/img/svg-io-minecraft-golem-bot.svg').default,
         title: 'Impress your friends with your robot',
         title_fr: 'Impressionne tes amis avec ton robot',
         description: (
@@ -38,7 +38,7 @@ const FeatureList = [
         ),
     },
     {
-        Svg: require('@site/static/img/svg-io-minecraft-cube-based-bot-walking-on-cube-based-ground.svg').default,
+        Svg: require('@site/static/img/svg-io-minecraft-herobrine-and-gollem.svg').default,
         title: 'In boost of adventure',
         title_fr: 'En boost d’aventure',
         description: (
