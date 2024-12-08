@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # Pour les dépendances npm
+  - package-ecosystem: "npm"
+    directory: "/" # Chemin vers votre projet, généralement la racine
+    schedule:
+      interval: "weekly" # Planification des mises à jour (peut être "daily", "weekly", ou "monthly")
+    ignore:
+      - dependency-name: "docusaurus"
+        versions: ["<3.0.0"] # Exemple pour ignorer certaines versions de dépendances
+
+  # Si vous utilisez GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Chemin vers les workflows Actions
+    schedule:
+      interval: "weekly"
