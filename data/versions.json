@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.5",
+    "label": "release 1.0.5",
+    "label_fr": "publication 1.0.5",
+    "description": "Version 1.0.5 includes security updates, fixes some error messages(#61).\\nImprove UI links(#73) and tchats style(#74), and wait screen(#75). Add cherry_log(#78)\\nRestore welcome(#70) and add a new function : craft a chest (#76)\\n",
+    "description_fr": "La version 1.0.5 inclut des mises à jour de sécurité, corrige certains messages d’erreur (#61).\\nAméliore les liens de l’IHM (#73) et le style des tchats (#74), ainsi que l’écran d’attente (#75). Ajout de cherry_log (#78)\\nRestaure la fonction welcome (#70) et ajoute une nouvelle fonction : fabriquer un coffre (#76)\\n",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.5",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.5/chicken-bot.exe"
+  },
+  {
     "version": "1.0.4",
     "label": "release 1.0.4",
     "label_fr": "publication 1.0.4",
@@ -16,14 +25,5 @@
     "description_fr": "La version 1.0.3 corrige quelques bugs, améliore des chat\\net simplifie le formulaire de l’adresse minecraft serveur.\\nOn peut voir la liste des versions testées de Minecraft.\\nMerci à LB et à rom1504 pour leurs retours!\\n",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.3",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.3/chicken-bot.exe"
-  },
-  {
-    "version": "1.0.2",
-    "label": "release 1.0.2",
-    "label_fr": "publication 1.0.2",
-    "description": "Version 1.0.2 fixes some bugs, removes some french chat\\nand add a new feature : crafting table !\\n",
-    "description_fr": "La version 1.0.2 corrige quelques bugs, enlève les chat en français\\net ajoute une nouvelle fonctionnalité : la table de craft !\\n",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.2",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.2/chicken-bot.exe"
   }
 ]
