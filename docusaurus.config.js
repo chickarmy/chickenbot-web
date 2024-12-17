@@ -92,6 +92,12 @@ const config = {
                         'aria-label': 'GitHub repository',
                     },
                     {
+                        href: 'https://bsky.app/profile/chicken-bot.bsky.social',
+                        position: 'right',
+                        className: 'header-bluesky-link',
+                        'aria-label': 'BlueSky',
+                    },
+                    {
                         type: 'search',
                         position: 'right',
                     },
@@ -121,6 +127,7 @@ const config = {
                         items: [
                             {label: 'Blog', to: '/blog'},
                             {label: 'GitHub', href: 'https://github.com/boly38/chickenbot-web'},
+                            {label: 'BlueSky', href: 'https://bsky.app/profile/chicken-bot.bsky.social'},
                         ],
                     },
                 ],
