@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.6",
+    "label": "release 1.0.6",
+    "label_fr": "publication 1.0.6",
+    "description": "Version 1.0.6 includes security updates, and add new functions :\\nauto-start a given bot (#80)\\nwhere-are-you (#85), obey-me (#88), come-here (#89)\\ncollect logs with an axe : harvest-log deprecated in favor to harvest-log-v2 (#90) \\nImprove logs toss issue (#86), deposit issue (#87)\\nRework UI functions presentations\\n",
+    "description_fr": "La version 1.0.6 inclut des mises à jour de sécurité et ajoute de nouvelles fonctions :\\nDémarrage auto d’un bot (#80)\\noù-êtes-vous (#85), obéissez-moi (#88), venez-ici (#89)\\nrécolte de bois avec une hâche : harvest-log obsolète au profit de harvest-log-v2 (#90)\\nAmélioration du problème de drop des bûches (#86), problème de dépôt d’objet (#87)\\nRefonte des présentations des fonctions de l’interface utilisateur\\n",
+    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.6",
+    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.6/chicken-bot.exe"
+  },
+  {
     "version": "1.0.5",
     "label": "release 1.0.5",
     "label_fr": "publication 1.0.5",
@@ -16,14 +25,5 @@
     "description_fr": "La version 1.0.4 corrige le bug de collecte de bois et le label inattendu sur l’interface.\\n",
     "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.4",
     "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.4/chicken-bot.exe"
-  },
-  {
-    "version": "1.0.3",
-    "label": "release 1.0.3",
-    "label_fr": "publication 1.0.3",
-    "description": "Version 1.0.3 fixes some bugs, improve some chat\\nand simplify minecraft server address form.\\nWe can see tested versions list of Minecraft.\\nThanks to LB and rom1504 for their feedbacks!\\n",
-    "description_fr": "La version 1.0.3 corrige quelques bugs, améliore des chat\\net simplifie le formulaire de l’adresse minecraft serveur.\\nOn peut voir la liste des versions testées de Minecraft.\\nMerci à LB et à rom1504 pour leurs retours!\\n",
-    "note": "https://github.com/chickarmy/chickenbot-web/releases/tag/v1.0.3",
-    "download": "https://github.com/chickarmy/chickenbot-web/releases/download/v1.0.3/chicken-bot.exe"
   }
 ]
